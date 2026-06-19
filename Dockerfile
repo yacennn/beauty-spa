@@ -18,10 +18,12 @@ COPY . .
 RUN composer install --no-dev --optimize-autoloader
 RUN npm install && npm run build
 
-# Configure Nginx
-RUN mkdir -p /run/nginx
-COPY .vercel/project.json* /etc/nginx/http.d/default.conf || echo "No custom nginx config"
-# (Had l-code l-te7t ghir bch y-ponti nginx 3la public folder)
+# Script bch y-gadd port d Nginx 3la hsab chno bgha Render l-wa9t d l-start
+RUN echo '#!/bin/sh\n\
+sed -i "s/listen 80;/listen ${PORT:-80};/g" /etc/nginx/http.d/default.conf\n\
+php-fpm -D && nginx -g "daemon off;"' > /entrypoint.sh && chmod +x /entrypoint.sh
+
+# Configure Nginx entry configuration
 RUN echo 'server { \n\
     listen 80; \n\
     root /var/www/public; \n\
@@ -40,6 +42,4 @@ RUN echo 'server { \n\
     } \n\
 }' > /etc/nginx/http.d/default.conf
 
-EXPOSE 80
-
-CMD php-fpm -D && nginx -g "daemon off;"
+CMD ["/entrypoint.sh"]
