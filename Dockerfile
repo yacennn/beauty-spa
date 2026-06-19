@@ -18,12 +18,7 @@ COPY . .
 RUN composer install --no-dev --optimize-autoloader
 RUN npm install && npm run build
 
-# Script bch y-gadd port d Nginx 3la hsab chno bgha Render l-wa9t d l-start
-RUN echo '#!/bin/sh\n\
-sed -i "s/listen 80;/listen ${PORT:-80};/g" /etc/nginx/http.d/default.conf\n\
-php-fpm -D && nginx -g "daemon off;"' > /entrypoint.sh && chmod +x /entrypoint.sh
-
-# Configure Nginx entry configuration
+# Configure Nginx config direct
 RUN echo 'server { \n\
     listen 80; \n\
     root /var/www/public; \n\
@@ -42,4 +37,7 @@ RUN echo 'server { \n\
     } \n\
 }' > /etc/nginx/http.d/default.conf
 
-CMD ["/entrypoint.sh"]
+EXPOSE 80
+
+# Amr wahed kay-bdel l-port d Nginx dynamically w kay-runi kolchi f l-blasa
+CMD sed -i "s/listen 80;/listen ${PORT:-80};/g" /etc/nginx/http.d/default.conf && php-fpm -D && nginx -g "daemon off;"
