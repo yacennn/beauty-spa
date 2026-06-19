@@ -1,0 +1,134 @@
+/* ============ Link Beauty Services — Thème Vert / Matcha — Mbdl ============ */
+:root {
+    --prune:         #4e8775;  /* Eucalyptus (الخضر د البوطونات واللوغو) */
+    --prune-fonce:   #1e463c;  /* Khdir d l-gaba ghameq (Hover d bton) */
+    --rose-clair:    #f4f7f5;  /* Khdir barid bzzaf l l-khalfyat */
+    --rose-tuile:    #E2F0D9;  /* Khdir khfif (Mreba3at d l-produits w l-formulaire) */
+    --encre:         #132a24;  /* Khdir k7al ghameq l l-unawin */
+    --gris-texte:    #556b62;  /* Gris ghadi l l-khdori l l-kteba */
+    --blanc:         #ffffff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    color: var(--gris-texte);
+    background: var(--blanc);
+    /* Taches aquarelle bdlnahom mn l-rose l l-khder khfif f l-background */
+    background-image:
+        radial-gradient(circle at 95% 12%, rgba(169, 223, 191, .35) 0, transparent 22%),
+        radial-gradient(circle at 4% 75%, rgba(169, 223, 191, .2) 0, transparent 18%);
+    background-attachment: fixed;
+}
+
+h1, h2, h3, .serif { font-family: 'Playfair Display', Georgia, serif; color: var(--encre); }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+/* ---------- Navigation ---------- */
+.navbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 0;
+}
+.navbar .brand { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--prune); text-decoration: none; }
+.navbar nav a {
+    margin-left: 26px; text-decoration: none; color: var(--encre); font-size: 15px;
+}
+.navbar nav a.active, .navbar nav a:hover { color: var(--prune); }
+
+/* ---------- En-tête de section ---------- */
+.section-head { text-align: center; padding: 36px 0 30px; }
+.section-head .eyebrow { font-size: 13px; color: #789086; letter-spacing: .4px; }
+.section-head h1 { font-size: 44px; font-weight: 500; margin: 6px 0 12px; }
+.section-head h1 strong { font-weight: 700; }
+.section-head p { max-width: 560px; margin: 0 auto; font-size: 14px; line-height: 1.6; }
+
+/* ---------- Boutons ---------- */
+.btn {
+    display: inline-block; background: var(--prune); color: #fff;
+    border: none; cursor: pointer; text-decoration: none;
+    padding: 9px 30px; border-radius: 999px; font-size: 14px;
+    transition: background .2s;
+}
+.btn:hover { background: var(--prune-fonce); }
+
+/* ---------- Page Produits ---------- */
+.products-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 34px 28px; padding-bottom: 70px;
+}
+.product-card .thumb {
+    background: var(--rose-tuile);
+    border-radius: 44px 14px 44px 14px;
+    height: 240px; display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+}
+.product-card .thumb img { max-height: 85%; max-width: 80%; object-fit: contain; }
+.product-card h3 { font-size: 19px; margin: 14px 0 6px; }
+.product-card .price { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--encre); }
+.product-card .old-price { color: #8fa097; text-decoration: line-through; font-size: 14px; margin-left: 8px; }
+.product-card .btn { margin-top: 12px; padding: 7px 34px; }
+
+/* ---------- Page Blog ---------- */
+.blog-layout { display: grid; grid-template-columns: 1.15fr .85fr; gap: 40px; padding-bottom: 70px; }
+.blog-featured .photo {
+    border-radius: 70px 16px 70px 16px; overflow: hidden; height: 390px; background: var(--rose-tuile);
+}
+.blog-featured .photo img { width: 100%; height: 100%; object-fit: cover; }
+.blog-featured .meta { margin-top: 18px; font-size: 13px; }
+.blog-featured h2 { font-size: 24px; margin: 8px 0 12px; }
+.blog-featured p { font-size: 14px; line-height: 1.7; margin-bottom: 18px; }
+
+.blog-side { display: flex; flex-direction: column; gap: 26px; }
+.blog-side .post { display: grid; grid-template-columns: 120px 1fr; gap: 18px; }
+.blog-side .post .photo {
+    border-radius: 36px 10px 36px 10px; overflow: hidden; height: 110px; background: var(--rose-tuile);
+}
+.blog-side .post .photo img { width: 100%; height: 100%; object-fit: cover; }
+.blog-side .post h3 { font-size: 18px; margin-bottom: 4px; }
+.blog-side .post .meta { font-size: 12px; margin-bottom: 6px; }
+.blog-side .post p { font-size: 13px; line-height: 1.6; }
+.meta .sep { margin: 0 8px; color: #a4b5ad; }
+
+/* ---------- Page Contact ---------- */
+.contact-wrap {
+    background: var(--rose-tuile);
+    border-radius: 60px; padding: 46px;
+    display: grid; grid-template-columns: 320px 1fr; gap: 40px;
+    margin-bottom: 70px;
+}
+.contact-info {
+    background: var(--prune); color: #fff;
+    border-radius: 70px 14px 70px 14px; padding: 44px 30px;
+}
+.contact-info h2 { color: #fff; font-size: 26px; margin-bottom: 14px; }
+.contact-info p { font-size: 13px; line-height: 1.7; opacity: .9; border-bottom: 1px solid rgba(255,255,255,.35); padding-bottom: 18px; margin-bottom: 18px; }
+.contact-info dl { font-size: 13px; line-height: 1.9; }
+.contact-info dt { float: left; clear: left; width: 70px; font-weight: 600; }
+
+.contact-form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px; }
+.contact-form input, .contact-form select, .contact-form textarea {
+    width: 100%; border: none; outline: none;
+    background: #fff; border-radius: 999px;
+    padding: 14px 22px; font-size: 14px; color: var(--encre);
+    font-family: inherit;
+}
+.contact-form textarea { border-radius: 28px; min-height: 140px; resize: vertical; }
+.contact-form .send { text-align: center; margin-top: 22px; }
+.error { color: #b3003c; font-size: 12px; margin: 4px 0 0 16px; }
+.flash-success {
+    background: #e6f7ec; color: #1d7a45; border-radius: 12px;
+    padding: 12px 18px; margin-bottom: 18px; font-size: 14px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+    .products-grid { grid-template-columns: repeat(2, 1fr); }
+    .blog-layout, .contact-wrap { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+    .products-grid { grid-template-columns: 1fr; }
+    .contact-form .row { grid-template-columns: 1fr; }
+    .section-head h1 { font-size: 34px; }
+}
